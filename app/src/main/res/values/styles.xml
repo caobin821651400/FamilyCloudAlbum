@@ -2,34 +2,27 @@
 <resources>
 
     <declare-styleable name="IconTextButton">
-
         <attr name="selected_bg_color" format="color" />
         <attr name="un_selected_bg_color" format="color" />
         <attr name="selected_text_color" format="color" />
         <attr name="un_selected_text_color" format="color" />
-        <attr name="selected_icon_color" format="color" />
-        <attr name="un_selected_icon_color" format="color" />
-
+        <attr name="selected_icon_res_id" format="reference" />
+        <attr name="un_selected_icon_res_id" format="reference" />
+        <attr name="icon_round" format="dimension" />
+        <attr name="itb_text" format="string" />
     </declare-styleable>
 
 
-    <style name="main_icon_button_style" parent="Widget.MaterialComponents.Button.UnelevatedButton">
-        <item name="cornerRadius">8dp</item>
-        <item name="un_selected_icon_color">#6B6C6C</item>
-        <item name="un_selected_text_color">@color/white</item>
-        <item name="selected_text_color">@color/app_main_color</item>
+    <style name="main_icon_button_style">
+        <item name="un_selected_icon_res_id">@mipmap/xiangce_didian_grey</item>
+        <item name="un_selected_text_color">@color/white60</item>
+        <item name="selected_text_color">#EF872D</item>
         <item name="un_selected_bg_color">@color/transparent</item>
-        <item name="selected_bg_color">#1B2026</item>
-        <item name="selected_icon_color">@color/app_main_color</item>
-        <item name="iconSize">30dp</item>
-        <item name="backgroundTint">@color/transparent</item>
+        <item name="selected_bg_color">#b2424447</item>
+        <item name="selected_icon_res_id">@mipmap/xiangce_didian_white</item>
         <item name="android:clickable">false</item>
-        <item name="android:insetTop">0dp</item>
-        <item name="android:insetBottom">0dp</item>
         <item name="android:focusable">true</item>
-        <item name="android:gravity">center</item>
-        <item name="android:insetLeft">0dp</item>
-        <item name="android:insetRight">0dp</item>
-        <item name="rippleColor">@color/translucent</item>
+        <item name="iconPadding">16dp</item>
+        <item name="icon_round">8dp</item>
     </style>
 </resources>

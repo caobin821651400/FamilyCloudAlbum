@@ -3,6 +3,7 @@ package com.family.cloud.album
 import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import cn.sccl.xlibrary.utils.XLogUtils
 import com.family.cloud.album.base.BaseMVVMActivity
 import com.family.cloud.album.databinding.ActivityMainBinding
 
@@ -13,16 +14,10 @@ class MainActivity : BaseMVVMActivity<MainViewModule, ActivityMainBinding>(),
 
 
     override fun initUI() {
-
-        binding.btnAlbum.post {
-
-        }
-
         binding.myNavHostFragment.post {
             mNavController = Navigation.findNavController(this, R.id.my_nav_host_fragment);
             binding.btnAlbum.requestFocus()
         }
-
 
         binding.btnAlbum.onFocusChangeListener = this
         binding.btnVideo.onFocusChangeListener = this
@@ -37,6 +32,7 @@ class MainActivity : BaseMVVMActivity<MainViewModule, ActivityMainBinding>(),
     }
 
     override fun onFocusChange(v: View, hasFocus: Boolean) {
+        XLogUtils.e("View = $v hasFocus = $hasFocus")
         if (!hasFocus) return
         when (v) {
             binding.btnAlbum -> mNavController.navigate(R.id.albumFragment)

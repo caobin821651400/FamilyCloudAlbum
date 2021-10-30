@@ -32,7 +32,7 @@ class SplashActivity : BaseMVVMActivity<SplashViewModule, ActivitySplashBinding>
     }
 
     fun go2Main() {
-//        launchActivity(MainActivity::class.java, null)
-        launchActivity(LoginActivity::class.java, null)
+        launchActivity(MainActivity::class.java, null)
+//        launchActivity(LoginActivity::class.java, null)
     }
 }
