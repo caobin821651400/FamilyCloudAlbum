@@ -10,19 +10,43 @@
         <attr name="un_selected_icon_res_id" format="reference" />
         <attr name="icon_round" format="dimension" />
         <attr name="itb_text" format="string" />
+        <attr name="itb_scale" format="boolean" />
+        <attr name="itb_is_horizontal" format="boolean" />
+        <attr name="itb_layout" format="reference" />
+        <attr name="itb_scale_value" format="float" />
     </declare-styleable>
 
 
     <style name="main_icon_button_style">
         <item name="un_selected_icon_res_id">@mipmap/xiangce_didian_grey</item>
         <item name="un_selected_text_color">@color/white60</item>
-        <item name="selected_text_color">#EF872D</item>
         <item name="un_selected_bg_color">@color/transparent</item>
+        <item name="selected_text_color">#EF872D</item>
         <item name="selected_bg_color">#b2424447</item>
         <item name="selected_icon_res_id">@mipmap/xiangce_didian_white</item>
         <item name="android:clickable">false</item>
         <item name="android:focusable">true</item>
+        <item name="android:orientation">horizontal</item>
         <item name="iconPadding">16dp</item>
         <item name="icon_round">8dp</item>
+        <item name="itb_scale">false</item>
+        <item name="itb_layout">@layout/layout_image_text_button_main</item>
+    </style>
+
+    <style name="frg_album_icon_button_style">
+        <item name="un_selected_icon_res_id">@mipmap/xiangce_didian_grey</item>
+        <item name="un_selected_text_color">@color/white</item>
+        <item name="un_selected_bg_color">#424447</item>
+        <item name="selected_icon_res_id">@mipmap/xiangce_didian_white</item>
+        <item name="selected_text_color">@color/white</item>
+        <item name="selected_bg_color">#EF872D</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">true</item>
+        <item name="android:orientation">vertical</item>
+        <item name="iconPadding">16dp</item>
+        <item name="icon_round">4dp</item>
+        <item name="itb_scale">true</item>
+        <item name="itb_scale_value">1.1</item>
+        <item name="itb_layout">@layout/layout_image_text_button_frg_album</item>
     </style>
 </resources>

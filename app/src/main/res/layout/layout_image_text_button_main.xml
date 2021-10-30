@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="120dp"
     android:layout_height="64dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:parentTag="android.widget.LinearLayout">
 
 
     <ImageView
         android:id="@+id/iv_icon"
         android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginLeft="22dp" />
+        android:layout_height="24dp" />
 
     <TextView
         android:id="@+id/tv_icon_name"
@@ -19,4 +19,4 @@
         android:layout_marginLeft="16dp"
         android:gravity="center"
         android:textSize="16sp" />
-</LinearLayout>
+</merge>

@@ -13,9 +13,6 @@ class AlbumFragment: BaseMVVMFragment<AlbumViewModule, FragmentAlbumBinding>() {
     }
 
     override fun initEvent() {
-        binding.albumButton.setOnClickListener {
-            XLogUtils.d(mViewModule.aa)
-        }
     }
 
 

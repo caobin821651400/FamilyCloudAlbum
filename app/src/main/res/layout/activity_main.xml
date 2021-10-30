@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="#1E272C"
     android:focusable="true"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     tools:context=".MainActivity">
 
 
@@ -58,8 +60,7 @@
         android:layout_marginTop="12dp"
         app:itb_text="相册"
         app:layout_constraintLeft_toLeftOf="@+id/icon"
-        app:layout_constraintTop_toBottomOf="@+id/line"
-        app:selected_text_color="@color/app_main_color" />
+        app:layout_constraintTop_toBottomOf="@+id/line" />
 
     <com.family.cloud.album.view.IconTextButton
         android:id="@+id/btn_video"
@@ -68,8 +69,7 @@
         android:layout_height="64dp"
         app:itb_text="视频"
         app:layout_constraintLeft_toLeftOf="@+id/icon"
-        app:layout_constraintTop_toBottomOf="@+id/btn_album"
-        app:selected_text_color="@color/app_main_color" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_album" />
 
     <com.family.cloud.album.view.IconTextButton
         android:id="@+id/btn_music"
@@ -78,8 +78,7 @@
         android:layout_height="64dp"
         app:itb_text="音乐"
         app:layout_constraintLeft_toLeftOf="@+id/icon"
-        app:layout_constraintTop_toBottomOf="@+id/btn_video"
-        app:selected_text_color="@color/app_main_color" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_video" />
 
 
     <com.family.cloud.album.view.IconTextButton
@@ -89,8 +88,7 @@
         android:layout_height="64dp"
         app:itb_text="设置"
         app:layout_constraintLeft_toLeftOf="@+id/icon"
-        app:layout_constraintTop_toBottomOf="@+id/btn_music"
-        app:selected_text_color="@color/app_main_color" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_music" />
 
 
     <androidx.fragment.app.FragmentContainerView
@@ -98,8 +96,8 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginTop="12dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         app:defaultNavHost="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_album"
