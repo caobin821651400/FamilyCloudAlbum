@@ -1,0 +1,6 @@
+include ':Circleindicator'
+include ':Autosize'
+include ':HttpModule'
+include ':UtilsLibrary'
+include ':app'
+rootProject.name = "FamilyCloudAlbum"

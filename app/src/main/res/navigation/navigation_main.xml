@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:startDestination="@id/albumFragment">
+
+
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.family.cloud.album.album.AlbumFragment"
+        android:label="albumFragment"
+        tools:layout="@layout/fragment_album">
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.family.cloud.album.video.VideoFragment"
+        android:label="videoFragment"
+        tools:layout="@layout/fragment_video">
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="com.family.cloud.album.music.MusicFragment"
+        android:label="musicFragment"
+        tools:layout="@layout/fragment_music">
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.family.cloud.album.setting.SettingFragment"
+        android:label="settingFragment"
+        tools:layout="@layout/fragment_setting">
+
+
+    </fragment>
+
+
+    <!--    <fragment-->
+    <!--        android:id="@+id/page1Fragment"-->
+    <!--        android:name="com.example.cb.test.jetpack.navigation.NavigationFragment1"-->
+    <!--        android:label="page1Fragment"-->
+    <!--        tools:layout="@layout/fragment_navigation1">-->
+
+    <!--        <action-->
+    <!--            android:id="@+id/action_fragment1_to_fragment2"-->
+    <!--            app:destination="@id/page2Fragment" />-->
+    <!--        <action-->
+    <!--            android:id="@+id/action_fragment1_to_fragment3"-->
+    <!--            app:destination="@id/page3Fragment" />-->
+    <!--    </fragment>-->
+</navigation>

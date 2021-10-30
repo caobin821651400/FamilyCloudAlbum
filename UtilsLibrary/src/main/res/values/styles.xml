@@ -1,0 +1,49 @@
+<resources>
+
+    <style name="xloading_dialog_style_cblibrary" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+
+    <style name="xloading_padding_style_cblibrary">
+        <item name="android:paddingTop">@dimen/XFrame_spacing_cblibrary</item>
+        <item name="android:paddingBottom">@dimen/XFrame_spacing_cblibrary</item>
+        <item name="android:paddingLeft">@dimen/XFrame_spacing_large_cblibrary</item>
+        <item name="android:paddingRight">@dimen/XFrame_spacing_large_cblibrary</item>
+    </style>
+
+    <!--弹窗-->
+    <style name="Dialog_cblibrary" parent="android:Theme.Dialog">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <style name="XTabLayout_Default_Style_cblibrary" parent="Base.Widget.Design.TabLayout">
+        <item name="x_tabMaxWidth">264dp</item>
+        <item name="x_tabIndicatorColor">?attr/colorAccent</item>
+        <item name="x_tabIndicatorHeight">2dp</item>
+        <item name="x_tabPaddingStart">12dp</item>
+        <item name="x_tabPaddingEnd">12dp</item>
+        <item name="x_tabBackground">?attr/selectableItemBackground</item>
+        <item name="x_tabTextAppearance">@style/TextAppearance.Design.Tab</item>
+        <item name="x_tabSelectedTextColor">?android:textColorPrimary</item>
+        <item name="x_tabGravity">fill</item>
+        <item name="x_tabMode">fixed</item>
+
+    </style>
+
+    <style name="TextAppearance.Design.Tab" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textSize">@dimen/design_tab_text_size</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="textAllCaps">true</item>
+    </style>
+</resources>
