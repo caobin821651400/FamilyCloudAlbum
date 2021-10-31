@@ -17,6 +17,11 @@
     </declare-styleable>
 
 
+    <declare-styleable name="ScaleView">
+        <attr name="si_scale_value" format="float" />
+    </declare-styleable>
+
+
     <style name="main_icon_button_style">
         <item name="un_selected_icon_res_id">@mipmap/xiangce_didian_grey</item>
         <item name="un_selected_text_color">@color/white60</item>

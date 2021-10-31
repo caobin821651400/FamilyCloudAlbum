@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="148dp"
+    android:layout_height="148dp"
+    android:descendantFocusability="afterDescendants"
+    android:focusable="true"
+    tools:viewBindingIgnore="true">
+
+
+    <com.family.cloud.album.view.ScaleImage
+        android:id="@+id/iv_img"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center"
+        android:focusable="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/banner_login"
+        app:si_scale_value="1.1" />
+
+
+    <com.family.cloud.album.view.ScaleTextView
+        android:id="@+id/tv_more"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center"
+        android:background="@color/black_half"
+        android:clickable="false"
+        android:focusable="false"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:si_scale_value="1.1"
+        tools:text="20+" />
+
+</FrameLayout>

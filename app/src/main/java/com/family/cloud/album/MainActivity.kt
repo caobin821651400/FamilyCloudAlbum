@@ -16,8 +16,9 @@ class MainActivity : BaseMVVMActivity<MainViewModule, ActivityMainBinding>(),
     override fun initUI() {
         binding.myNavHostFragment.post {
             mNavController = Navigation.findNavController(this, R.id.my_nav_host_fragment);
-            binding.btnAlbum.requestFocus()
         }
+
+        binding.btnAlbum.postDelayed({binding.btnAlbum.requestFocus()},1000)
 
         binding.btnAlbum.onFocusChangeListener = this
         binding.btnVideo.onFocusChangeListener = this
