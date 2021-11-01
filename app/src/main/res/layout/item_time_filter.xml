@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="128dp"
+    android:layout_height="48dp"
+    android:background="@drawable/selector_time_filter_tv_bg"
+    android:clickable="false"
+    android:gravity="center"
+    android:focusable="true"
+    android:textSize="20sp"
+    android:textColor="@drawable/selector_time_filter_text_color"
+    tools:text="2021">
+
+</TextView>

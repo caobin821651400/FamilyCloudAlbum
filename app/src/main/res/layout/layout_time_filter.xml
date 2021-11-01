@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="384dp"
+    android:layout_height="293dp"
+    android:orientation="horizontal"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <com.family.cloud.album.view.TvRecyclerView
+        android:id="@+id/year_rv"
+        android:layout_width="128dp"
+        android:layout_height="match_parent"
+        android:background="#424447"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <com.family.cloud.album.view.TvRecyclerView
+        android:id="@+id/month_rv"
+        android:layout_width="128dp"
+        android:layout_height="match_parent"
+        android:background="#525252"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <com.family.cloud.album.view.TvRecyclerView
+        android:id="@+id/day_rv"
+        android:layout_width="128dp"
+        android:layout_height="match_parent"
+        android:background="#424447"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+</merge>

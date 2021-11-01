@@ -1,11 +1,16 @@
 package com.family.cloud.album.album
 
 import android.view.View.OnFocusChangeListener
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.sccl.xlibrary.adapter.XRecyclerViewAdapter
 import cn.sccl.xlibrary.adapter.XViewHolder
+import cn.sccl.xlibrary.kotlin.dp2px
 import cn.sccl.xlibrary.kotlin.setVisible
+import com.family.cloud.album.MainActivity
+import com.family.cloud.album.MainViewModule
 import com.family.cloud.album.R
 import com.family.cloud.album.base.BaseMVVMFragment
 import com.family.cloud.album.bean.AlbumListBean
@@ -13,14 +18,15 @@ import com.family.cloud.album.databinding.FragmentAlbumBinding
 import com.family.cloud.album.view.IconTextButton
 import com.family.cloud.album.view.ScaleImage
 import com.family.cloud.album.view.ScaleTextView
+import com.family.cloud.album.view.TvRecyclerView
 
 class AlbumFragment : BaseMVVMFragment<AlbumViewModule, FragmentAlbumBinding>() {
 
-
+    private val acViewModule by activityViewModels<MainViewModule>()
     private lateinit var mAdapter: AlbumAdapter
+    private var isShowFilterView: Boolean = false
 
     override fun initUI() {
-
         val list = ArrayList<AlbumListBean>()
         list.add(AlbumListBean(AlbumListBean.TYPE_HEADER))
         list.add(AlbumListBean(AlbumListBean.TYPE_TITLE))
@@ -45,21 +51,92 @@ class AlbumFragment : BaseMVVMFragment<AlbumViewModule, FragmentAlbumBinding>() 
     }
 
     override fun initEvent() {
+        binding.timeFilterView.visibilityChange {
+            if (!it) {
+                mAdapter.btnTimeFilter?.requestFocus()
+                isShowFilterView = false
+            }
+        }
+
+        binding.albumRv.onBorderListener = object : TvRecyclerView.SimpleBorderListener() {
+            override fun onLeftBorder(): Boolean {
+                acViewModule.mFocusLeftEvent.value = MainActivity.FRG_TYPE_ALBUM
+                return true
+            }
+        }
+
+        binding.rootView.onBorderListener = object : TvRecyclerView.OnBorderListener {
+            override fun onLeftBorder(): Boolean {
+                if (mAdapter.btnCommemorate?.isFocused == true || mAdapter.btnTimeFilter?.isFocused == true) {
+                    acViewModule.mFocusLeftEvent.value = MainActivity.FRG_TYPE_ALBUM
+                    return true
+                }
+                return false
+            }
+
+            override fun onTopBorder(): Boolean {
+                return false
+            }
+
+            override fun onRightBorder(): Boolean {
+                if (mAdapter.btnPlace?.isFocused == true || mAdapter.btnTimeFilter?.isFocused == true) {
+                    return true
+                }
+                return false
+            }
+
+            override fun onBottomBorder(): Boolean {
+                return false
+            }
+        }
     }
 
+    /**
+     * 时间筛选
+     */
+    fun showTimeFilterView() {
+        if (isShowFilterView) {
+            hideTimeFilterView()
+            return
+        }
+        mAdapter.btnTimeFilter?.post {
+            val top = dp2px(178f)
+            val params = binding.timeFilterView.layoutParams as ConstraintLayout.LayoutParams
+            params.setMargins(0, top, 0, 0)
+            binding.timeFilterView.setVisible(true)
+            isShowFilterView = true
+            binding.timeFilterView.requestFocus()
+        }
+    }
+
+    /**
+     * 时间筛选
+     */
+    private fun hideTimeFilterView() {
+        mAdapter.btnTimeFilter?.post {
+            binding.timeFilterView.setVisible(false)
+            isShowFilterView = false
+            mAdapter.btnTimeFilter!!.requestFocus()
+        }
+    }
 
     inner class AlbumAdapter(mRv: RecyclerView) : XRecyclerViewAdapter<AlbumListBean>(mRv) {
+
+        var btnTimeFilter: IconTextButton? = null
+        var btnPlace: IconTextButton? = null
+        var btnCommemorate: IconTextButton? = null
 
         override fun bindData(holder: XViewHolder, data: AlbumListBean, position: Int) {
             when (data.itemType) {
                 AlbumListBean.TYPE_HEADER -> {
-                    val btnCommemorate = holder.getView<IconTextButton>(R.id.btn_commemorate)
-                    val btnPlace = holder.getView<IconTextButton>(R.id.btn_Place)
-                    val btnTimeFilter = holder.getView<IconTextButton>(R.id.btn_time_filter)
+                    btnCommemorate = holder.getView(R.id.btn_commemorate)
+                    btnPlace = holder.getView(R.id.btn_Place)
+                    btnTimeFilter = holder.getView(R.id.btn_time_filter)
 
-                    btnCommemorate.onFocusChangeListener = headerListener
-                    btnPlace.onFocusChangeListener = headerListener
-                    btnTimeFilter.onFocusChangeListener = headerListener
+                    btnCommemorate?.onFocusChangeListener = headerListener
+                    btnPlace?.onFocusChangeListener = headerListener
+                    btnTimeFilter?.onFocusChangeListener = headerListener
+                    btnTimeFilter?.setOnClickListener { showTimeFilterView() }
                 }
                 AlbumListBean.TYPE_TITLE -> {
 
@@ -81,11 +158,6 @@ class AlbumFragment : BaseMVVMFragment<AlbumViewModule, FragmentAlbumBinding>() 
         private val headerListener =
             OnFocusChangeListener { v, hasFocus ->
                 mRv.scrollToPosition(0)
-            }
-
-        private val itemListListener =
-            OnFocusChangeListener { v, hasFocus ->
-
             }
 
         override fun getItemLayoutResId(data: AlbumListBean, position: Int): Int {

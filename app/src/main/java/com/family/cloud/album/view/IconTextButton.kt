@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import com.family.cloud.album.R
+import com.family.cloud.album.utils.AppUtils
 
 class IconTextButton : LinearLayout {
 
@@ -86,7 +87,7 @@ class IconTextButton : LinearLayout {
         }
         mTextView.setTextColor(mUnSelectTextColor)
         mImageView.setImageResource(mUnSelectIconResId)
-        background = getShapeDrawable(mUnSelectBgColor)
+        background = AppUtils.getShapeDrawable(mUnSelectBgColor,mRound)
     }
 
 
@@ -99,12 +100,12 @@ class IconTextButton : LinearLayout {
             scaleXy(true)
             mTextView.setTextColor(mSelectTextColor)
             mImageView.setImageResource(mSelectIconResId)
-            background = getShapeDrawable(mSelectBgColor)
+            background = AppUtils.getShapeDrawable(mSelectBgColor,mRound)
         } else {
             scaleXy(false)
             mTextView.setTextColor(mUnSelectTextColor)
             mImageView.setImageResource(mUnSelectIconResId)
-            background = getShapeDrawable(mUnSelectBgColor)
+            background = AppUtils.getShapeDrawable(mUnSelectBgColor,mRound)
         }
     }
 
@@ -117,14 +118,6 @@ class IconTextButton : LinearLayout {
         } else {
             scaleX = 1.0f
             scaleY = 1.0f
-        }
-    }
-
-    private fun getShapeDrawable(@ColorInt color: Int): ShapeDrawable {
-        val round = floatArrayOf(mRound, mRound, mRound, mRound, mRound, mRound, mRound, mRound)
-        return ShapeDrawable().apply {
-            shape = RoundRectShape(round, null, null)
-            paint.color = color
         }
     }
 }

@@ -13,4 +13,9 @@
     <color name="transparent">#00000000</color>
     <color name="transparent90">#0c000000</color>
     <color name="translucent">#7f000000</color>
+
+
+    <color name="time_filter_focused">#ffffff</color>
+    <color name="time_filter_no_focused">#99ffffff</color>
+    <color name="time_filter_selected">#EF872D</color>
 </resources>
