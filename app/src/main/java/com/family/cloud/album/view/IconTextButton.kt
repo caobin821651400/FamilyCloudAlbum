@@ -7,11 +7,13 @@ import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RoundRectShape
 import android.util.AttributeSet
 import android.view.Gravity
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
+import cn.sccl.xlibrary.utils.XLogUtils
 import com.family.cloud.album.R
 import com.family.cloud.album.utils.AppUtils
 
@@ -109,6 +111,10 @@ class IconTextButton : LinearLayout {
         }
     }
 
+
+    override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
+        return super.dispatchKeyEvent(event)
+    }
 
     private fun scaleXy(enable: Boolean) {
         if (!enableScale)return

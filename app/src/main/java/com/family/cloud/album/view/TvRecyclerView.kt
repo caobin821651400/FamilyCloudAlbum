@@ -99,34 +99,6 @@ class TvRecyclerView : VerticalGridView {
         return intercept || super.dispatchKeyEvent(event)
     }
 
-//    private val mRect1 by lazy { Rect() }
-//    private val mRect2 by lazy { Rect() }
-//    private fun isNextFocusUseful(currView: View?, nextView: View?, direction: Int): Boolean {
-//        if (direction == -1 || nextView == null) {
-//            return false
-//        }
-//        if (currView == null) {
-//            return true
-//        }
-//
-//        mRect1.setEmpty()
-//        mRect2.setEmpty()
-//        offsetDescendantRectToMyCoords(currView, mRect1)
-//        offsetDescendantRectToMyCoords(nextView, mRect2)
-//
-//        when (direction) {
-//            View.FOCUS_RIGHT, View.FOCUS_LEFT -> {
-//                return !(mRect1.top > mRect2.top + nextView.measuredHeight
-//                        || mRect1.top + currView.measuredHeight < mRect2.top)
-//            }
-//            View.FOCUS_UP, View.FOCUS_DOWN -> {
-//                return !(mRect1.left > mRect2.left + nextView.measuredWidth
-//                        || mRect1.left + currView.measuredWidth < mRect2.left)
-//            }
-//        }
-//        return false
-//    }
-
     interface OnBorderListener {
         fun onLeftBorder(): Boolean
         fun onTopBorder(): Boolean

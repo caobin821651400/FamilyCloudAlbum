@@ -28,7 +28,7 @@ class AlbumFragmentRootView : ConstraintLayout {
         if (onBorderListener == null
             || event.action != KeyEvent.ACTION_DOWN
         ) {
-            return true
+            return super.dispatchKeyEvent(event)
         }
         var intercept = false
         when (event.keyCode) {
@@ -49,7 +49,7 @@ class AlbumFragmentRootView : ConstraintLayout {
     }
 
 
-    var onBorderListener: TvRecyclerView.OnBorderListener? = null
+    var onBorderListener: OnBorderListener? = null
 
     interface OnBorderListener {
         fun onLeftBorder(): Boolean

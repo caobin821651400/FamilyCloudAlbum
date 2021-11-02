@@ -15,10 +15,7 @@ import com.family.cloud.album.R
 import com.family.cloud.album.base.BaseMVVMFragment
 import com.family.cloud.album.bean.AlbumListBean
 import com.family.cloud.album.databinding.FragmentAlbumBinding
-import com.family.cloud.album.view.IconTextButton
-import com.family.cloud.album.view.ScaleImage
-import com.family.cloud.album.view.ScaleTextView
-import com.family.cloud.album.view.TvRecyclerView
+import com.family.cloud.album.view.*
 
 class AlbumFragment : BaseMVVMFragment<AlbumViewModule, FragmentAlbumBinding>() {
 
@@ -64,8 +61,7 @@ class AlbumFragment : BaseMVVMFragment<AlbumViewModule, FragmentAlbumBinding>() 
                 return true
             }
         }
-
-        binding.rootView.onBorderListener = object : TvRecyclerView.OnBorderListener {
+        binding.rootView.onBorderListener = object : AlbumFragmentRootView.OnBorderListener {
             override fun onLeftBorder(): Boolean {
                 if (mAdapter.btnCommemorate?.isFocused == true || mAdapter.btnTimeFilter?.isFocused == true) {
                     acViewModule.mFocusLeftEvent.value = MainActivity.FRG_TYPE_ALBUM
@@ -136,7 +132,12 @@ class AlbumFragment : BaseMVVMFragment<AlbumViewModule, FragmentAlbumBinding>() 
                     btnCommemorate?.onFocusChangeListener = headerListener
                     btnPlace?.onFocusChangeListener = headerListener
                     btnTimeFilter?.onFocusChangeListener = headerListener
+                    //日期筛选
                     btnTimeFilter?.setOnClickListener { showTimeFilterView() }
+                    //纪念相册
+                    mAdapter.btnCommemorate?.setOnClickListener {
+                        launchActivity(AlbumListActivity::class.java, null)
+                    }
                 }
                 AlbumListBean.TYPE_TITLE -> {
 

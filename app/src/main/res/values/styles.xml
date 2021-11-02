@@ -21,6 +21,11 @@
         <attr name="si_scale_value" format="float" />
     </declare-styleable>
 
+    <declare-styleable name="CommonTitleView">
+        <attr name="ctv_title" format="string" />
+        <attr name="ctv_show_line" format="boolean" />
+    </declare-styleable>
+
 
     <style name="main_icon_button_style">
         <item name="un_selected_icon_res_id">@mipmap/xiangce_didian_grey</item>
@@ -29,7 +34,6 @@
         <item name="selected_text_color">#EF872D</item>
         <item name="selected_bg_color">#b2424447</item>
         <item name="selected_icon_res_id">@mipmap/xiangce_didian_white</item>
-        <item name="android:clickable">false</item>
         <item name="android:focusable">true</item>
         <item name="android:orientation">horizontal</item>
         <item name="iconPadding">16dp</item>
@@ -45,7 +49,6 @@
         <item name="selected_icon_res_id">@mipmap/xiangce_didian_white</item>
         <item name="selected_text_color">@color/white</item>
         <item name="selected_bg_color">#EF872D</item>
-        <item name="android:clickable">false</item>
         <item name="android:focusable">true</item>
         <item name="android:orientation">vertical</item>
         <item name="iconPadding">16dp</item>
